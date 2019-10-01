@@ -1,0 +1,39 @@
+select b.city_name, sum(a.transaction_amount) from tsel_trx_sample_train a JOIN cgi_list b on a.cgi=b.cgi where transaction_type in ('VOICE') group by city_name;
+
+
+select b.city_name, sum(a.transaction_amount) from tsel_trx_sample_train a JOIN cgi_list b on a.cgi=b.cgi where b.province_name in ('Jakarta D.K.I.') group by city_name;
+
+
+
+select city_name, trans_amount FROM (select b.city_name, sum(a.transaction_amount) trans_amount from tsel_trx_sample_train a JOIN cgi_list b on a.cgi=b.cgi where b.province_name in ('Jakarta D.K.I.') group by city_name)  x ORDER BY trans_amount DESC limit 10;
+
+
+select city_name, trans_amount FROM (select b.city_name, sum(a.transaction_amount) trans_amount from tsel_trx_sample_train a JOIN cgi_list b on a.cgi=b.cgi  group by city_name)  x ORDER BY trans_amount DESC limit 1;
+
+
+SELECT
+	city_name,
+	avg_trans
+FROM
+	(SELECT
+		b.city_name,
+		avg(a.avg_trans) as avg_trans
+	FROM
+		(SELECT
+			cgi,
+			msisdn,
+			avg(transaction_amount) as avg_trans
+		FROM
+			tsel_trx_sample_train
+		GROUP BY
+			cgi,
+			msisdn) a
+	JOIN
+		cgi_list b
+	ON
+		a.cgi=b.cgi
+	GROUP BY
+		b.city_name) x
+ORDER BY
+	avg_trans DESC
+limit 1;
