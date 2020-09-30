@@ -1,0 +1,54 @@
+
+POST http://localhost:12345/predict
+content-type: application/json
+
+[{
+    "accountNumber": 315011732,
+    "customerId": 315011732,
+    "creditLimit": 5000,
+    "availableMoney": 1847.28,
+    "transactionDateTime": "2016-06-14T11:10:32",
+    "transactionAmount": 330.17,
+    "merchantName": "Lyft",
+    "acqCountry": "US",
+    "merchantCountryCode": "US",
+    "posEntryMode": 9.0,
+    "posConditionCode": 1.0,
+    "merchantCategoryCode": "rideshare",
+    "currentExpDate": "12\/2021",
+    "accountOpenDate": "2011-09-29",
+    "dateOfLastAddressChange": "2011-09-29",
+    "cardCVV": 748,
+    "enteredCVV": 748,
+    "cardLast4Digits": 7224,
+    "transactionType": "PURCHASE",
+    "echoBuffer": null,
+    "currentBalance": 3152.72,
+    "merchantCity": null,
+    "merchantState": null,
+    "merchantZip": null,
+    "cardPresent": false,
+    "posOnPremises": null,
+    "recurringAuthInd": null,
+    "expirationDateKeyInMatch": false
+}
+]
+
+###
+
+
+###
+
+
+POST http://localhost:5000/predict
+content-type: application/json
+
+[{"accountNumber": "733493772", "customerId": "733493772", "creditLimit": 5000.0,
+  "availableMoney": 4888.67, "currentBalance": 111.33, "transactionDateTime": "2016-01-09T22:32:39",
+  "transactionAmount": 24.75, "merchantName": "Uber", "acqCountry": "US", "merchantCountryCode": "US",
+  "posEntryMode": "09", "posConditionCode": "01", "merchantCategoryCode": "rideshare",
+  "currentExpDate": "06/2023", "accountOpenDate": "2014-08-03", "dateOfLastAddressChange": "2014-08-03",
+  "cardCVV": 492, "enteredCVV": 492, "cardLast4Digits": 9184, "transactionType": "PURCHASE", "echoBuffer": "",
+  "merchantCity": "", "merchantState": "", "merchantZip": "", "cardPresent": false, "posOnPremises": "", "recurringAuthInd": "",
+  "expirationDateKeyInMatch": false}
+]
